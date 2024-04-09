@@ -1,0 +1,39 @@
+@import './tailwind.css';
+@import './markdown.scss';
+@import './common.scss';
+
+/* 网页主体 */
+html,
+body,
+#app {
+  @apply m-0 p-0 h-full w-full;
+  @apply tracking-wide;
+
+  // 字体
+  font-family:
+    'Noto Sans SC',
+    'PingFang SC',
+    -apple-system,
+    Inter,
+    Helvetica,
+    system-ui,
+    Avenir,
+    Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+html {
+  @apply bg-foreground dark:bg-foreground-dark text-primary dark:text-primary-dark;
+}
+
+/* NProgress 进度条 */
+#nprogress {
+  pointer-events: none;
+
+  .bar {
+    @apply bg-brand opacity-75 fixed z-[1031] top-0 left-0 w-full h-0.5;
+  }
+}

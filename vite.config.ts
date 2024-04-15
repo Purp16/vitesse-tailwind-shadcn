@@ -10,7 +10,7 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import VueDevTools from 'vite-plugin-vue-devtools'
+// import VueDevTools from 'vite-plugin-vue-devtools'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from '@shikijs/markdown-it'
 import WebfontDownload from 'vite-plugin-webfont-dl'
@@ -21,6 +21,24 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, 'src')}/`,
+    },
+    extensions: ['.js', '.json', '.ts'], // 使用路径别名时想要省略的后缀名，可以自己 增减
+  },
+
+  // dev 开发服务配置
+  server: {
+    // port: 3000, // 服务启动端口号
+    cors: false, // 允许跨域
+    open: true, // 服务启动时是否自动打开浏览器
+
+    // 请求代理配置，解决开发时跨域问题，如遇到请刷新页面
+    proxy: {
+      '/api': {
+        target: 'https://kg-edu-backend-71-production.env.iai.bdaa.pro/v1/api', // 后端接口
+        // target: 'http://localhost:5000/api', // 本地测试接口
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
     },
   },
 
@@ -36,7 +54,7 @@ export default defineConfig({
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
       extensions: ['.vue', '.md'],
-      dts: 'src/typed-router.d.ts',
+      dts: 'typed-router.d.ts',
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -55,7 +73,7 @@ export default defineConfig({
           'vue-router/auto': ['useLink', 'useRouter', 'useRoute'],
         },
       ],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores', 'src/data'],
       vueTemplate: true,
     }),
@@ -77,8 +95,8 @@ export default defineConfig({
           await Shiki({
             defaultColor: false,
             themes: {
-              light: 'vitesse-light',
-              dark: 'vitesse-dark',
+              light: 'one-dark-pro',
+              dark: 'one-dark-pro',
             },
           })
         )
@@ -91,7 +109,7 @@ export default defineConfig({
       extensions: ['vue', 'md'],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      dts: 'src/components.d.ts',
+      dts: 'components.d.ts',
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
@@ -135,7 +153,7 @@ export default defineConfig({
     WebfontDownload(['https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600;700&display=swap']),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
+    // VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest

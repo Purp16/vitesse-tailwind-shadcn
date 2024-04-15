@@ -40,11 +40,12 @@
   },
   "include": [
     "src/shims.d.ts",
-    "src/components.d.ts",
-    "src/auto-imports.d.ts",
+    "components.d.ts",
+    "auto-imports.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "typed-router.d.ts"
   ],
   "exclude": [
     "dist",

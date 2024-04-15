@@ -5,7 +5,7 @@ import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 import type { UserModule } from './types'
 
-import './styles/main.scss'
+import '@/styles/main.scss'
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(

@@ -6,7 +6,7 @@ const rt = useRoute()
 <template>
   <nav>
     <div class="container content">
-      <RouterLink to="/" class="title"> Vitesse Tailwind Shadcn </RouterLink>
+      <RouterLink to="/" class="title">LUNA</RouterLink>
 
       <!-- 右侧 -->
       <section>

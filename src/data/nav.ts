@@ -4,23 +4,27 @@
 // children: 子导航栏配置
 export const nav_routes = [
   {
-    label: 'Home',
-    route: '/',
+    label: '动态',
+    route: '/dynamic/mla',
   },
   {
-    label: 'Organization',
-    route: '/info/organization',
+    label: '检索平台',
+    route: '/search',
   },
   {
-    label: 'Map',
-    route: '/info/map',
+    label: '分析平台',
+    route: '/analysis',
   },
   {
-    label: 'Template',
-    route: '/template',
+    label: '数据中台',
+    route: '/data',
   },
   {
-    label: 'About',
+    label: '开放平台',
+    route: '/public_platform',
+  },
+  {
+    label: '关于',
     route: '/about',
   },
 ]

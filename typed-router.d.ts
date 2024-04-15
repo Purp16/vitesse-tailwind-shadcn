@@ -22,6 +22,8 @@ declare module 'vue-router/auto-routes' {
     '/[...all]': RouteRecordInfo<'/[...all]', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     '/2024': RouteRecordInfo<'/2024', '/2024', Record<never, never>, Record<never, never>>,
     '/about': RouteRecordInfo<'/about', '/about', Record<never, never>, Record<never, never>>,
+    '/dynamic': RouteRecordInfo<'/dynamic', '/dynamic', Record<never, never>, Record<never, never>>,
+    '/dynamic/mla': RouteRecordInfo<'/dynamic/mla', '/dynamic/mla', Record<never, never>, Record<never, never>>,
     '/hi/[name]': RouteRecordInfo<'/hi/[name]', '/hi/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
     '/home': RouteRecordInfo<'/home', '/home', Record<never, never>, Record<never, never>>,
     '/info/map': RouteRecordInfo<'/info/map', '/info/map', Record<never, never>, Record<never, never>>,

@@ -7,6 +7,4 @@ useHead({
 })
 </script>
 
-<template>
-  <RouterView />
-</template>
+<template>关于</template>

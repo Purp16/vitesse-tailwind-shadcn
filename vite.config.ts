@@ -36,7 +36,7 @@ export default defineConfig({
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
       extensions: ['.vue', '.md'],
-      dts: 'src/typed-router.d.ts',
+      dts: 'typed-router.d.ts',
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -55,7 +55,7 @@ export default defineConfig({
           'vue-router/auto': ['useLink', 'useRouter', 'useRoute'],
         },
       ],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores', 'src/data'],
       vueTemplate: true,
     }),
@@ -91,7 +91,7 @@ export default defineConfig({
       extensions: ['vue', 'md'],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      dts: 'src/components.d.ts',
+      dts: 'components.d.ts',
     }),
 
     // https://github.com/antfu/vite-plugin-pwa

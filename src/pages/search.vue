@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  titleTemplate: '%s | Vitesse Tailwind Shadcn',
+  titleTemplate: '%s | 检索平台',
 })
 </script>
 

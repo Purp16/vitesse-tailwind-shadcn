@@ -1,8 +1,8 @@
 ---
-title: MLA
+title: LUNA
 category: news
 ---
 
-# MLA
+# LUNA
 
 hello, dynamic!

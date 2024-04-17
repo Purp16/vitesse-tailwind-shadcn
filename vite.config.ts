@@ -10,12 +10,14 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-// import VueDevTools from 'vite-plugin-vue-devtools'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from '@shikijs/markdown-it'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import eslintPlugin from 'vite-plugin-eslint'
 
 export default defineConfig({
   resolve: {
@@ -28,7 +30,7 @@ export default defineConfig({
   // dev 开发服务配置
   server: {
     // port: 3000, // 服务启动端口号
-    cors: false, // 允许跨域
+    cors: true, // 允许跨域
     open: true, // 服务启动时是否自动打开浏览器
 
     // 请求代理配置，解决开发时跨域问题，如遇到请刷新页面
@@ -49,6 +51,11 @@ export default defineConfig({
           include: [/\.vue$/, /\.md$/],
         }),
       },
+    }),
+
+    // Eslint Fomatter
+    eslintPlugin({
+      include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
     }),
 
     // https://github.com/posva/unplugin-vue-router
@@ -73,6 +80,7 @@ export default defineConfig({
           'vue-router/auto': ['useLink', 'useRouter', 'useRoute'],
         },
       ],
+      resolvers: [ElementPlusResolver()],
       dts: 'auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores', 'src/data'],
       vueTemplate: true,
@@ -110,6 +118,7 @@ export default defineConfig({
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'components.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
@@ -153,7 +162,7 @@ export default defineConfig({
     WebfontDownload(['https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600;700&display=swap']),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    // VueDevTools(),
+    VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest

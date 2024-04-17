@@ -39,7 +39,7 @@
     ]
   },
   "include": [
-    "src/shims.d.ts",
+    "shims.d.ts",
     "components.d.ts",
     "auto-imports.d.ts",
     "src/**/*.ts",

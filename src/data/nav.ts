@@ -5,7 +5,7 @@
 export const nav_routes = [
   {
     label: '动态',
-    route: '/dynamic/mla',
+    route: '/dynamic/luna',
   },
   {
     label: '检索平台',

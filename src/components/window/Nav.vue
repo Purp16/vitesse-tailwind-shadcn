@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { nav_routes } from '@/data/nav'
+import { useUserStore } from '@/stores/user'
+const user = useUserStore()
+
 const rt = useRoute()
 </script>
 
 <template>
   <nav>
     <div class="container content">
+      <!-- 左侧LOGO区域 -->
       <RouterLink to="/" class="title">
         <img src="@/img/luna/logo_nav.png" alt="logo" class="h-8 mr-2" />
       </RouterLink>
@@ -16,6 +20,18 @@ const rt = useRoute()
           <!-- 过滤首页：item.route !== '/' && rt.path.startsWith(item.route)   -->
           <span>{{ item.label }}</span>
         </RouterLink>
+
+        <!-- 分割线 -->
+        <div class="h-4 border-l border-zinc-300" />
+
+        <!-- 用户 -->
+        <RouterLink v-if="user.isLoggedIn" to="/user" class="item" :class="{ 'bg-zinc-200': rt.path === '/user' }">
+          {{ user.nickname }}
+        </RouterLink>
+        <section v-else>
+          <RouterLink to="/user/login" class="item" :class="{ 'bg-zinc-200': rt.path === '/user/login' }"> 登录 </RouterLink>
+          <RouterLink to="/user/register" class="item" :class="{ 'bg-zinc-200': rt.path === '/user/register' }"> 注册 </RouterLink>
+        </section>
       </section>
     </div>
   </nav>
@@ -35,7 +51,7 @@ nav {
 
   // 右侧
   section {
-    @apply flex flex-wrap gap-y-2 h-full font-semibold text-lg text-zinc-800;
+    @apply flex flex-wrap gap-y-2 h-full font-semibold text-lg text-zinc-800 items-center;
 
     // 菜单Item
     .item {

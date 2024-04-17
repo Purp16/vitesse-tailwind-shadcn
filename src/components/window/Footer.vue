@@ -9,7 +9,7 @@
 
 <style scoped lang="scss">
 footer {
-  @apply py-8 px-4 bg-[#F4F6F7] flex items-center justify-center border-y border-zinc-200;
+  @apply py-8 px-4 bg-[#F4F6F7] flex items-center justify-center border-t border-zinc-200;
 
   section {
     @apply flex flex-col w-full gap-2 justify-start border-white border-opacity-5 text-[#333] flex-wrap text-base gap-y-2;

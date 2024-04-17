@@ -5,6 +5,7 @@ useHead({
 </script>
 
 <template>
+  检索平台
   <RouterView />
 </template>
 

@@ -1,11 +1,3 @@
 {
-  "recommendations": [
-    "antfu.iconify",
-    "antfu.vite",
-    "antfu.goto-alias",
-    "misterj.vue-volar-extention-pack",
-    "andrewmcodes.tailwindcss-extension-pack",
-    "lokalise.i18n-ally",
-    "streetsidesoftware.code-spell-checker"
-  ]
+  "recommendations": ["Vue.volar"]
 }
